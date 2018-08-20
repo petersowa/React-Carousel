@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  perspective: 500px;
+}
+
+.figure {
+  width: 200px;
+  height: 200px;
+  box-sizing: border-box;
+  padding: 0 12px;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  transform-origin: 50% 50% -250px;
+}
