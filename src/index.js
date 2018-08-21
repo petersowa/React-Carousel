@@ -42,10 +42,9 @@ const Side = styled.div.attrs({
 const Img = styled.img`
   width: auto;
   height: auto;
+  box-sizing: content-box;
+  border: 3px solid white;
   border-radius: 25px;
-  box-sizing: border-box;
-  border: 3px solid grey;
-  box-sizing: border-box;
 `;
 
 const ImgContainer = styled.div`
@@ -53,16 +52,16 @@ const ImgContainer = styled.div`
     transition: opacity .7s ease;
     opacity: 0;
     position: absolute;
-    top:0;
-    left:0;
-    border-radius: 25px;
-    display: block;
+    top: 0;
+    left: 0;
     background-image: radial-gradient(circle at center, transparent 0, rgba(0,0,0,.8) 100%);
     height: 100%;
     width: 100%;
-    border: 3px solid white;
+    border-radius: 25px;
+    border: 3px solid transparent;
     box-sizing: content-box;
     box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+    overflow: none;
     content: '';
   }
   &:hover::after { 
@@ -82,8 +81,7 @@ const NavBox = styled(Navigate)`
 const Figure = styled.div.attrs({
   style: props => ({
     transform: `rotateY(${props.angle}deg`,
-    zIndex: 360 - Math.abs(180 - ((Math.abs(props.angle) + 180) % 360)),
-    opacity: (180 - Math.abs(180 - ((Math.abs(props.angle) + 180) % 360))) / 180
+    zIndex: 360 - Math.abs(180 - ((Math.abs(props.angle) + 180) % 360))
   })
 })`
   display: flex;
@@ -117,6 +115,7 @@ const Carousel = styled.div`
 
 const Container = styled.div`
   position: relative;
+  transform-style: preserve-3d;
   display: flex;
   top: 150px;
   height: 500px;
@@ -130,7 +129,7 @@ const Container = styled.div`
   margin: auto;
   padding: 0px;
   box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
-    &::after {
+  &::after {
     transition: opacity .7s ease;
     opacity: 1;
     position: absolute;
