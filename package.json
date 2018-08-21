@@ -1,7 +1,7 @@
 {
-  "name": "new",
+  "name": "image-carousel-in-react-with-styled-compoenents",
   "version": "1.0.0",
-  "description": "",
+  "description": "Demonstrates a simple image carousel using react and styled components.  Images can also be flipped to show back image.",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
