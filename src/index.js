@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
+import ImageUpload from "./ImageUpload";
+
 import "./styles.css";
 
 class Navigate extends React.Component {
@@ -215,30 +217,33 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container>
-        <Carousel>
-          {this.images.map((img, i) => {
-            return (
-              <Figure key={i} angle={i * this.rotANGLE + this.state.angle}>
-                <Side angle={this.state.side} absolute>
-                  <ImgContainer onClick={this.handleFlip}>
-                    <Img src={img} />
-                  </ImgContainer>
-                </Side>
-                <Side angle={180 + this.state.side}>
-                  <ImgContainer onClick={this.handleFlip}>
-                    <Img src={this.imagesBF[i]} />
-                  </ImgContainer>
-                </Side>
-                <NavBox
-                  next={this.rotate(this.rotANGLE)}
-                  prev={this.rotate(-this.rotANGLE)}
-                />
-              </Figure>
-            );
-          })}
-        </Carousel>
-      </Container>
+      <div>
+        <ImageUpload />
+        <Container>
+          <Carousel>
+            {this.images.map((img, i) => {
+              return (
+                <Figure key={i} angle={i * this.rotANGLE + this.state.angle}>
+                  <Side angle={this.state.side} absolute>
+                    <ImgContainer onClick={this.handleFlip}>
+                      <Img src={img} />
+                    </ImgContainer>
+                  </Side>
+                  <Side angle={180 + this.state.side}>
+                    <ImgContainer onClick={this.handleFlip}>
+                      <Img src={this.imagesBF[i]} />
+                    </ImgContainer>
+                  </Side>
+                  <NavBox
+                    next={this.rotate(this.rotANGLE)}
+                    prev={this.rotate(-this.rotANGLE)}
+                  />
+                </Figure>
+              );
+            })}
+          </Carousel>
+        </Container>
+      </div>
     );
   }
 }
