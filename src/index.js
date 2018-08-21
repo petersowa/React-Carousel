@@ -71,10 +71,10 @@ const ImgContainer = styled.div`
 `;
 
 const NavBox = styled(Navigate)`
-  position: relative;
+  position: absolute;
   opacity: 0;
   width: 100%;
-  bottom: -20px;
+  bottom: -30px;
   transition: opacity .25s ease;
   }
 `;
@@ -113,23 +113,37 @@ const Carousel = styled.div`
   align-items: center;
   padding: 0px;
   margin: 0px;
-  overflow: hidden;
-  box-sizing: border-box;
-  background-color: purple;
-  border: 1px solid #ffff11;
 `;
 
 const Container = styled.div`
+  position: relative;
   display: flex;
-  height: calc(100vh);
-  width: calc(100vw-10px);
+  top: 150px;
+  height: 500px;
+  width: 90vw;
   perspective: 1600px;
-  background-color: blue;
+  background-color: silver;
   box-sizing: content-box;
   justify-content: center;
   align-items: center;
-  margin: 0px;
+  overflow: hidden;
+  margin: auto;
   padding: 0px;
+  box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+    &::after {
+    transition: opacity .7s ease;
+    opacity: 1;
+    position: absolute;
+    top:0;
+    left:0;
+    background-image: radial-gradient(circle at center, transparent 0, rgba(0,0,0,.8) 100%);
+    height: 100%;
+    width: 100%;
+    border: 3px solid white;
+    box-sizing: border-box;
+    content: '';
+    z-index: 350;
+  }
 `;
 
 class App extends React.Component {
